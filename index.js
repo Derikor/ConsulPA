@@ -1,12 +1,9 @@
-const http = require('http');
 
 const mongoose = require('mongoose');
 const express = require('express');
-const socketio = require('socket.io');
 
 
 const app = express();
-const server = http.createServer(app);
 
 app.set('port', process.env.PORT || 3000);
 
@@ -23,8 +20,10 @@ app.use(express.static(__dirname + "/public/"));
 
 
 //Epezando en el servidor
-server.listen(app.get('port'), () =>{
+app.listen(app.get('port'), () =>{
     console.log("servidor web iniciado en el puerto.", app.get('port'));
 })
+
+
 
 
