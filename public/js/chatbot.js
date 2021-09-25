@@ -1,25 +1,23 @@
-
-window.addEventListener('dfMessengerLoaded', function(event){
-
+/*window.addEventListener('dfMessengerLoaded', function(event){
 const dfMessenger = document.querySelector('df-messenger');
 
+   dfMessenger.addEventListener('df-user-input-entered', function (event) {
+    console.log("mensaje escrito:  "+ event.detail.input);
+    });
+});*/
+//const msj = require('./public/models/User_Message');
+const dfMessenger = document.querySelector('df-messenger');
+/*const bodyParser = require('body-parser');
+const express = require('express');
+
+const app = express();
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());*/
 
 dfMessenger.addEventListener('df-user-input-entered', function (event) {
-    console.log("df-user-input-entered:  "+ event.detail.input);
-    });
-
-});
-  
+    console.log('mensaje: '+ event.detail.input);
+ });
 
 
-function savemessage (msj){
-    let User_Message = new User_Message({
-        //author: ObjectId,
-          message: msj,
-        //date: Date
-    });
-    User_Message.save((err,res) =>{
-        if (err) return console.log(err);
-        console.log("se agrego el mensaje ",res);
-    });
-}
+ 

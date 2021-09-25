@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/log.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Consultorio Virtual de Primeros Auxilios</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Inicio</a></li>
+							<li>
+								<a href="#">Primeros Auxilios</a>
+								<ul>
+									<li><a href="#">Definicion</a></li>
+									<li><a href="herida.html">Heridas</a></li>
+									<li><a href="quemadura.html">Quemaduras</a></li>
+									<li><a href="hemorragia.html">Hemorragias</a></li>
+								</ul>
+							</li>
+							<li><a href="chat.html">Conversar con Asistente</a></li>
+						</ul>
+					</nav>
+
+				</div>
+
+            <!-- logueado -->
+                <form action="/autenticacion" method="POST">
+                    <h2>Login</h2>
+                    <div class="section">
+                        <div class="title">Usuario</div>
+                        <div class="field"><input type="text" id="username" name="username"></div>
+                    </div>
+                    <div class="section">
+                        <div class="title">Contraseña</div>
+                        <div class="field"><input type="password" id="password" name="password"></div>
+                    </div>
+                    <div class="section">
+                        <div class="but"><input type="button" value="Ingresar" onclick="validar()"></div>
+                    </div>
+                </form>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>¿Quieres saber como se realiza una asistencia?</h3>
+										</header>
+										<p>No dude en consultar a nuestro asistente virtual en las siguientes plataformas</p>
+										<ul class="icons">
+
+											<li><a href="chat.html" class="icon brands fa-reddit"><span class="label">WebMessenger</span></a></li>
+										</ul>
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; 2021</li><li> <a href="index.html">Consultorio_Virtual_de_Primeros_Auxilios</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+		
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script type="text/javascript" src="js/logueo.js"></script>
+	</body>
+</html>
