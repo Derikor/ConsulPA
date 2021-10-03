@@ -19,6 +19,10 @@ app.get('/api/product/:productid', (req,res) =>{
     
 })
 
+app.post('/add', (req,res) =>{
+    console.log(req.body);
+    console.log("recibido "+ res);
+})
 
 app.post('/api/product', (req,res) =>{
     console.log('POST /api/product');

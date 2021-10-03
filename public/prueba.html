@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="assets/js/artyom.js"></script>
+    <script src="assets/js/artyom.window.js"></script>
+    <script src="assets/js/artyom.window.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+</head>
+<body>
+ <div class="container w-30">
+    <div>
+        <input type="button" onclick="start()" value="start">
+        <input type="button" onclick="stop()" value="stop">
+        <input id="salida">
+    </div>
+    <div style="float: right;padding: 20px;">
+        <a href="http://www.google.com" target="_blank" id="uno">uno</a>
+        <a href="http://www.google.com" target="_blank" id="dos">dos</a>
+        <a href="http://www.google.com" target="_blank" id="tres">tres</a>
+        <a href="http://www.google.com" target="_blank" id="cuatro">cuatro</a>
+    </div>
+    <br><br><br>
+    <div>
+        <label for="leer">EMPIEZA A HABLARLE AL CHATBOT</label>
+        <br>
+        <textarea id="leer" cols="100" rows="4"></textarea>
+        <input type="button" id="btnleer" value="leer">
+    </div>
+    <div>
+        <label for="leer1">ESCRIBE UN TEXTO 1</label>
+        <br>
+        <textarea id="salida" cols="100" rows="4"></textarea>
+        <input type="button" id="btnleer1" value="lee1">
+    </div>
+ </div>
+ <script>
+     const artyom = new Artyom();
+     $('#uno').mouseover(function(){artyom.say("enlace 1")})
+$('#uno').mouseout(function(){artyom.shutUp()})
+$('#dos').mouseover(function(){artyom.say("enlace 2")})
+$('#tres').mouseover(function(){artyom.say("enlace 3")})
+$('#cuatro').mouseover(function(){artyom.say("enlace 4")})
+function start(){
+artyom.fatality();// Detener cualquier instancia previa
+
+setTimeout(function(){// Esperar 250ms para inicializar
+ artyom.initialize({
+    lang: "es-ES",// Más lenguajes son soportados, lee la documentación
+    continuous:false,// Reconoce 1 solo comando y basta de escuchar
+    listen:true, // Iniciar !
+    debug:true, // Muestra un informe en la consola
+    speed:1 // Habla normalmente
+}).then(function(){
+    console.log('comenzando a escuchar');
+});
+},250
+);
+}
+// Luego pausar reconocimiento de comandos
+artyom.dontObey();
+
+// Intenta ejecutar el comando decir hola ! y nada pasara,
+// pero en 10 segundos, el reconocimiento de comandos será reanudado
+setTimeout(function(){
+artyom.obey();
+
+// di decir hola y el comando será activado !
+}, 10000);
+
+ function stop(){
+     artyom.fatality();
+ }
+
+ $('#btnleer').click(function (e) {
+            e.preventDefault();
+            var btn = $('#btnleer');
+            if (artyom.speechSupported()) {
+                btn.addClass('disabled');
+                btn.attr('disabled', 'disabled');
+
+                var text = $('#leer').val();
+                if (text) {
+                    var lines = $("#leer").val().split("\n").filter(function (e) {
+                        return e
+                    });
+                    var totalLines = lines.length - 1;
+
+                    for (var c = 0; c < lines.length; c++) {
+                        var line = lines[c];
+                        if (totalLines == c) {
+                            artyom.say(line, {
+                                onEnd: function () {
+                                    btn.removeAttr('disabled');
+                                    btn.removeClass('disabled');
+                                }
+                            });
+                        } else {
+                            artyom.say(line);
+                        }
+                    }
+                }
+            } else {
+                alert("Tu Navegador no puede hablar");
+            }
+        });
+ </script>
+
+</body>
+</html>

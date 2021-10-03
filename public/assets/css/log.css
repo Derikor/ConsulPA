@@ -26,4 +26,8 @@ input[type=button]{
 }
 .but a{
     color: blue;
+    
+}
+.fonima{
+    background-image: url("../../images/formfon.jpg");
 }

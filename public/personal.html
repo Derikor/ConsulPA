@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chatbot</title>
+    <title>personal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <script src="assets/js/artyom.js"></script>
-		<script src="assets/js/artyom.window.js"></script>
-		<script src="assets/js/artyom.window.min.js"></script>
 </head>
-<body class="fondoima">
+<body class="fonima">
 
   <div id="header">
 
@@ -39,14 +36,51 @@
         <li><a href="chat.html">Conversar con Asistente</a></li>
       </ul>
     </nav>
-    <div>
-      <label for="leer"><h3>EMPIEZA A HABLARLE AL CHATBOT </h3> <input type="button" id="emp" class="bg-primary" onclick="start()" value="Empezar"></label>
-      <br>
-      <textarea id="leer" cols="100" rows="10"></textarea>
-  </div>
-  </div>
 
+  </div>
+<div class="container-md w-60 mt-5 mb-5 rounded-3 shadow fondoima">
+  <div class="row">
+    <h2 align="center"> PERSONAL</h2> 
+    <form  action="cliente.php" id="cliente_form" runat="server" method="post">
+      <div class="row col-12">
+        <div class="section col">
+          <label for="name" class="form-label">COD PERSONAL:</label>
+          <input type="text" name="txtcodcli" size ="8" placeholder="" required  />
+        </div>
+        <div class="section col">
+          <label for="date">HORARIO DE TRABAJO</label>
+          <input type="time" name="txtfec"  required />
+        </div>
+        <div class="section col">
+          <label for="name">CARGO:</label>
+          <input type="text" name="txtnac" placeholder="" required />
+        </div>
+      </div>
+     
+      <div class="section">
+        <label for="name">NOMBRE/S:</label>
+        <input type="text" name="txtnom"  size ="28" placeholder="" required />
+      </div>
+      <div class="section">
+        <label for="name">APELLIDO PATERNO:</label>
+        <input type="text" name="txtpa" placeholder="" required />
+      </div>
+      <div class="section">
+        <label for="name">APELLIDO MATERNO:</label>
+        <input type="text" name="txtma" placeholder="" required />
+      </div>
+      <br>
+      <div class="section">
+        <div align="center"><button class="bg-primary" type="submit" name="btInsertar"> Agregar Personal </button></div>
+      </div>
+      <br>
+     </form>
+  </div>
+</div>
   
+
+
+
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
@@ -57,6 +91,5 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="js/asistentchat.js"></script>
 </body>
 </html>

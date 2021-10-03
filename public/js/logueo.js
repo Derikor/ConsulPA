@@ -1,9 +1,10 @@
 function validar (){
     var usuario = document.getElementById("username").value;
     var contraseña = document.getElementById("password").value;
-    if(usuario == "villacooperativa" && contraseña == "centrodesalud"){
+    if(usuario == "villacooperativa"||"villa cooperativa" && contraseña == "centrodesalud"||"centro de salud"){
         location.href ="./form.html";
     }else{
-        alert("incorrect")
+        document.getElementById("f").innerHTML = "usuario o contraseña incorrecta ";
+            return false
     }
 }
