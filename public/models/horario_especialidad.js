@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Horario_de_Especialidad = new Schema({
+    codp:String,
     nombre: String,
     appaterno: String,
     apmaterno: String,

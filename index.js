@@ -1,54 +1,8 @@
 
 const mongoose = require('mongoose');
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const msj = require('./public/models/User_Message');
-
-const app = express();
-
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
-
-// rutas
-app.get('/api/product', (req,res) =>{
-    res.send(200, {products: []})
-})
-
-app.get('/api/product/:productid', (req,res) =>{
-    
-})
-
-app.post('/add', (req,res) =>{
-    console.log(req.body);
-    console.log("recibido "+ res);
-})
-
-app.post('/api/product', (req,res) =>{
-    console.log('POST /api/product');
-    console.log(req.body);
- let mensaje = new msj();
-        mensaje.title = req.body.title
-        mensaje.mensaje = req.body.mensaje
-mensaje.save((err, mensajeStored) =>{
-    if (err) res.status(500).send({message: 'error al guardar'+err})
-    res.status(200).send({mensaje: mensajeStored})
-});
-})
-
-app.put('/api/product/:productid', (req,res) =>{
-
-})
-
-app.delete('/api/product/:productid', (req,res) =>{
-
-})
-
+const app = require('./app');
 //puertos
 app.set('port', process.env.PORT || 3000);
-
-//archivos CVPA
-app.use(express.static(__dirname + "/public/"));
 
 //Base de datos CVPA
  mongoose.connect(

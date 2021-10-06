@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>personal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" />
+  </noscript>
+</head>
+
+<body class="fondoima2">
+
+  <div class="container w-50 mt-5 mb-5rounded-3 shadow fondoima1">
+    <div class="row">
+      <h2 align="center"> CAMBIAR DATOS</h2>
+      <form action="/modif/<%= regis._id %> " id="personal" method="post">
+        <div class="row col-12">
+          <div class="section col">
+            <label for="name" class="form-label">COD PERSONAL:</label>
+            <input type="text" name="codp" size="8" placeholder="" required class="border border-dark" value="<% regis.codp %>"/>
+          </div>
+          <div class="section col">
+            <label for="date">HORARIO DE TRABAJO</label>
+            <input type="time" name="horadeatencion" required class="border border-dark" value="<% regis.horadeatencion %>"/>
+          </div>
+          <div class="section col">
+            <label for="name">CARGO:</label>
+            <input class="border border-dark" type="text" name="especialidad" placeholder="" required  value="<% regis.especialidad %>"/>
+          </div>
+        </div>
+
+        <div class="section">
+          <label for="name">NOMBRE/S:</label>
+          <input type="text" name="nombre" size="28" placeholder="" required class=" w-50 border border-dark" value="<% regis.nombre %>"/>
+        </div>
+        <div class="section">
+          <label for="name">APELLIDO PATERNO:</label>
+          <input type="text" name="appaterno" placeholder="" required class="w-50 border border-dark" value="<% regis.appaterno %>"/>
+        </div>
+        <div class="section">
+          <label for="name">APELLIDO MATERNO:</label>
+          <input type="text" name="apmaterno" placeholder="" required class="w-50 border border-dark" value="<% regis.apmaterno %>"/>
+        </div>
+        <br>
+        <div class="section">
+          <div align="center"><button class="bg-primary" type="submit" > Modificar los Datos </button>
+          </div>
+        </div>
+        <br>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

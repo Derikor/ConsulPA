@@ -39,19 +39,7 @@ $('#leequema').click(function (e) {
     }
 });
 
-
-setTimeout(function(){// Esperar 250ms para inicializar
-    artyom.initialize({
-       lang: "es-ES",// Más lenguajes son soportados
-       continuous:false,// Reconoce 1 solo comando y basta de escuchar
-       listen:true, // Iniciar !
-       debug:true, // Muestra un informe en la consola
-       speed:1 // Habla normalmente
-   }).then(function(){
-       console.log('comenzando a escuchar');
-   });
-   },250);
-
+artyom.fatality();// Detener cualquier instancia previa
 setTimeout(function(){// Esperar 250ms para inicializar
     artyom.initialize({
        lang: "es-ES",// Más lenguajes son soportados
@@ -80,7 +68,7 @@ setTimeout(function(){// Esperar 250ms para inicializar
         indexes: ['Hola','buen día','buenos días','buenas tardes','buenas noches'],
         action: function(i){
             if (i==0){
-                artyom.say("Hola que tal");   
+                artyom.say("Bienvenido dime cual es su consulta");   
             }
             if (i==1 || i==2){
                 artyom.say("Hola, buenos dias");   

@@ -19,7 +19,7 @@
     <!-- Inner -->
       <div class="inner">
         <header>
-          <h1><a href="index.html" id="logo">Consultorio Virtual de Primeros Auxilios</a></h1>
+          <h1><a href="index.html" id="logo">REALIZA UNA CONSULTA</a></h1>
         </header>
       </div>
 
@@ -30,7 +30,7 @@
         <li>
           <a href="#">Primeros Auxilios</a>
           <ul>
-            <li><a href="#">Definicion</a></li>
+            <li><a href="index.html#leepa">Definicion</a></li>
             <li><a href="herida.html">Heridas</a></li>
             <li><a href="quemadura.html">Quemaduras</a></li>
             <li><a href="hemorragia.html">Hemorragias</a></li>
@@ -40,9 +40,9 @@
       </ul>
     </nav>
     <div>
-      <label for="leer"><h3>EMPIEZA A HABLARLE AL CHATBOT </h3> <input type="button" id="emp" class="bg-primary" onclick="start()" value="Empezar"></label>
+      <label for="leer"><input type="button" id="emp" class="bg-primary" onclick="start()" value="Empezar"></label>
       <br>
-      <textarea id="leer" cols="100" rows="10"></textarea>
+      <textarea id="salida" cols="100" rows="10" onkeypress="enter(event)"></textarea>
   </div>
   </div>
 

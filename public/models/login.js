@@ -4,8 +4,10 @@ const bcrypt = require('bcrypt');
 const jump = 10;
 
 const Logueo = new mongoose.Schema({
-    username:{type: String, required: true, unique: true},
-    password:{type: String, required: true}
+    username:{type: String, required: true, unique: true, lowercase:true},
+    password:{type: String, required: true, select: false},
+    logindate:{ type: Date , default: Date.now()},
+    lastlogin: Date
 });
 
 Logueo.pre('save', function(next){

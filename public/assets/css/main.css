@@ -87,6 +87,12 @@ input, select, textarea {
 	.fonima{
 		background-image: url("../../images/formfon.jpg");
 	}
+	.fondoima1{
+		background-image: url("../../images/fondocentrosa.jpg");
+	}
+	.fondoima2{
+		background-image: url("../../images/azul.jpg");
+	}
 
 	body {
 		background: #f0f4f4;

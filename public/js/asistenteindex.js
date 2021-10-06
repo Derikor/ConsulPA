@@ -2,7 +2,8 @@ const artyom = new Artyom();
 
 // CONFIGURACION CABECERA
 $('#empe').click(function(){artyom.say("Bienvenido al Consultorio Virtual de Primeros Auxilios, en ,que puedo ayudarle",{
-    lang:"es-ES"
+    lang:"es-ES",
+    speed:1
 })})
 $('#empe').mouseover(function(){artyom.say("Empezar",{lang:"es-ES"})})
 $('#inicio').mouseover(function(){artyom.say("Iniciando",{lang:"es-ES"})})
@@ -27,7 +28,7 @@ artyom.addCommands([
         indexes: ['Hola','buen día','buenos días','buenas tardes','buenas noches'],
         action: function(i){
             if (i==0){
-                artyom.say("Hola que tal");   
+                artyom.say("Bienvenido dime que quiere hacer");   
             }
             if (i==1 || i==2){
                 artyom.say("Hola, buenos dias");   
@@ -53,12 +54,6 @@ artyom.addCommands([
             }
          }
     },
-    {
-        indexes: ['limpiar'],
-        action: function(){
-          $('#salida').val('');
-         }
-    },   
  ]);
 
  artyom.redirectRecognizedTextOutput(function(text,isfinal){
@@ -70,30 +65,12 @@ artyom.addCommands([
 
 
 
-// Esta funcion inicia artyom en el reconocimiento discontinuo (para conexiones http)
- function start(){
-artyom.fatality();// Detener cualquier instancia previa
-
-setTimeout(function(){// Esperar 250ms para inicializar
- artyom.initialize({
-    lang: "es-ES",// Más lenguajes son soportados
-    continuous:false,// Reconoce 1 solo comando y basta de escuchar
-    listen:true, // Iniciar !
-    debug:true, // Muestra un informe en la consola
-    speed:1 // Habla normalmente
-}).then(function(){
-    console.log('comenzando a escuchar');
-});
-},250);
-}
-
-// Esta funcion inicia artyom en el reconocimiento continuo y obedecera comandos por siempre (requiere conexión https para prevenir el dialogo de permiso de microfono continuo)
 function start(){
 artyom.fatality();// Detener cualquier instancia previa
 
 setTimeout(function(){// Esperar 250ms para inicializar
  artyom.initialize({
-    lang: "es-ES",// Más lenguajes son soportados
+    lang: "es-ES",
     continuous:true,// Artyom obedecera por siempre
     listen:true, // Iniciar !
     debug:true, // Muestra un informe en la consola
@@ -103,20 +80,6 @@ setTimeout(function(){// Esperar 250ms para inicializar
 });
 },250);
 }
-// Luego pausar reconocimiento de comandos
-artyom.dontObey();
-
-// Intenta ejecutar el comando decir hola ! y nada pasara,
-// pero en 10 segundos, el reconocimiento de comandos será reanudado
-setTimeout(function(){
-artyom.obey();
-
-// di decir hola y el comando será activado !
-}, 10000);
-
- function stop(){
-     artyom.fatality();
- }
 
  $('#leepa').click(function (e) {
     e.preventDefault();

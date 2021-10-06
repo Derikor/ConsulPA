@@ -27,39 +27,54 @@ artyom.addCommands([
         indexes: ['Hola','buen día','buenos días','buenas tardes','buenas noches'],
         action: function(i){
             if (i==0){
-                artyom.say("Hola que tal");   
+                artyom.say("Bienvenido sea usted");   
             }
             if (i==1 || i==2){
-                artyom.say("Hola, buenos dias");   
+                artyom.say("buenos dias que desea consultar");   
             }
             if (i==3){
-                artyom.say("Hola, buenas tardes");   
+                artyom.say("buenas tardes que desea consultar");   
             }
             if (i==4){
-                artyom.say("Hola, buenas noches");   
+                artyom.say("buenas noches que desea consultar");   
             }
          }
     },
     {
-        indexes: ['volver al inicio','abrir ventana de quemaduras'],
+        indexes: ['volver al inicio','abrir quemaduras','abrir hemorragias','abrir heridas'],
         action: function(i){
             if (i==0){
                 artyom.say("volviendo a la ventana principal"); 
                 window.open("index.html",'_blank');
             }
+            if (i==1){
+                artyom.say("abriendo ventana de quemaduras");   
+                window.open("quemadura.html",'_blank');
+            }
             if (i==2){
-                artyom.say("abriendo youtube");   
-                window.open("/public/index.html");
+                artyom.say("abriendo ventana de hemorragias");   
+                window.open("hemorragia.html",'_blank');
+            }
+            if (i==3){
+                artyom.say("abriendo ventana de heridas");   
+                window.open("herida.html",'_blank');
             }
          }
     },
     {
         indexes: ['limpiar'],
         action: function(){
+          artyom.say("Limpiando conversación");
           $('#salida').val('');
          }
     },   
  ]);
+
+function enter(e){
+    var m = $('#salida')
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla==13) alert('enter');
+}
 
  artyom.redirectRecognizedTextOutput(function(text,isfinal){
      var span = $('#salida');
@@ -68,25 +83,6 @@ artyom.addCommands([
      }
  });
 
-
-
-// Esta funcion inicia artyom en el reconocimiento discontinuo (para conexiones http)
- function start(){
-artyom.fatality();// Detener cualquier instancia previa
-
-setTimeout(function(){// Esperar 250ms para inicializar
- artyom.initialize({
-    lang: "es-ES",// Más lenguajes son soportados
-    continuous:false,// Reconoce 1 solo comando y basta de escuchar
-    listen:true, // Iniciar !
-    debug:true, // Muestra un informe en la consola
-    speed:1 // Habla normalmente
-}).then(function(){
-    console.log('comenzando a escuchar');
-});
-},250);
-}
-
 // Esta funcion inicia artyom en el reconocimiento continuo y obedecera comandos por siempre (requiere conexión https para prevenir el dialogo de permiso de microfono continuo)
 function start(){
 artyom.fatality();// Detener cualquier instancia previa
@@ -94,7 +90,7 @@ artyom.fatality();// Detener cualquier instancia previa
 setTimeout(function(){// Esperar 250ms para inicializar
  artyom.initialize({
     lang: "es-ES",// Más lenguajes son soportados
-    continuous:true,// Artyom obedecera por siempre
+    continuous:false,// Artyom obedecera por siempre
     listen:true, // Iniciar !
     debug:true, // Muestra un informe en la consola
     speed:1 // Habla normalmente
