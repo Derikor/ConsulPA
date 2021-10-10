@@ -32,6 +32,17 @@ router.get('/eliminar/:id', async (req, res)=>{
     await reg.remove({_id: id});
     res.redirect('/reportper');
 });
+router.get('/chat', (req, res)=>{
+    res.render('asistente');
+});
+router.post('/addmen', async (req, res)=>{
+    var mensaje = $('#salida').val();
+    const savmen = new reg();
+    savmen.title = 'mensaje de usuario'
+    savmen.mensaje = mensaje
+    await savmen.save();
+    console.log('mensaje guardado');
+});
 
 
 router.get('/product', mjscomands.getmsj)

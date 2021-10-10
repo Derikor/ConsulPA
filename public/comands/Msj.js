@@ -23,7 +23,7 @@ function savemsj (req,res){
     console.log(req.body);
  let mensaje = new msj();
         mensaje.title = req.body.title
-        mensaje.mensaje = m,
+        mensaje.mensaje = m
         mensaje.date = req.body.date
 mensaje.save((err, mensajeStored) =>{
     if (err) res.status(500).send({message: 'error al guardar'+err})
